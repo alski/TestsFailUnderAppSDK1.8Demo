@@ -14,23 +14,25 @@ variables:
   buildPlatform: 'x64'
   buildConfiguration: 'Release'
       
-  steps:        
-    - task: NuGetToolInstaller@1
+steps:
+  - task: NuGetToolInstaller@1
+    inputs:
+      versionSpec: 
 
-    - task: NuGetCommand@2
-      inputs:
-        restoreSolution: '$(solution)'
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
 
-    - task: VSBuild@1
-      inputs:
-        solution: '$(solution)'
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
 
-    - task: VSTest@3
-      inputs:
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)' 
-        codeCoverageEnabled: true 
-    #    runSettingsFile: 'CodeCoverage.runsettings'
+  - task: VSTest@3
+    inputs:
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)' 
+      codeCoverageEnabled: true 
+  #    runSettingsFile: 'CodeCoverage.runsettings'
     
