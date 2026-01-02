@@ -35,4 +35,6 @@ steps:
       configuration: '$(buildConfiguration)' 
       codeCoverageEnabled: true 
   #    runSettingsFile: 'CodeCoverage.runsettings'
-    
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: |
+        **\bin\**\UnitTestApp1.dll
